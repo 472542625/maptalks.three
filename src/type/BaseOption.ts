@@ -40,16 +40,19 @@ export type BarOptionType = BaseObjectOptionType & {
 }
 
 export type LineOptionType = BaseObjectOptionType & {
+    bottomHeight?: number,
     colors?: Array<string | THREE.Color>
 }
 
 export type ExtrudePolygonOptionType = BaseObjectOptionType & {
     height?: number,
+    bottomHeight?: number,
     topColor?: string,
     bottomColor?: string,
     key?: string
 }
 export type ExtrudeLineOptionType = BaseObjectOptionType & {
+    bottomHeight?: number,
     width?: number,
     height?: number,
     topColor?: string,
@@ -68,6 +71,7 @@ export type ExtrudeLineTrailOptionType = BaseObjectOptionType & {
 export type PointOptionType = BaseObjectOptionType & {
     height?: number,
     color?: string | THREE.Color
+    size?: number
 }
 
 export type HeatMapDataType = {

@@ -561,7 +561,7 @@ class ThreeLayer extends maptalks.CanvasLayer {
         return this;
     }
 
-    loop(render: boolean = true) {
+    loop(render: boolean = false) {
         const delayMeshes = this._delayMeshes;
         if (!delayMeshes.length) {
             return;
@@ -818,9 +818,9 @@ class ThreeLayer extends maptalks.CanvasLayer {
         }
         const map = this.map || this.getMap();
         //When map interaction, do not carry out mouse movement detection, which can have better performance
-        // if (map.isInteracting() && e.type === 'mousemove') {
-        //     return this;
-        // }
+        if (map.isInteracting()) {
+            return this;
+        }
         const { type, coordinate } = e;
         const now = maptalks.Util.now();
         if (this._mousemoveTimeOut && type === 'mousemove') {
